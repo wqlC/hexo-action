@@ -3,10 +3,10 @@
 set -e
 
 # setup ssh-private-key
-mkdir -p /root/.ssh/
-echo "$INPUT_DEPLOY_KEY" > /root/.ssh/id_rsa
-chmod 600 /root/.ssh/id_rsa
-ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
+mkdir -p ~/.ssh/
+echo "$INPUT_DEPLOY_KEY" > ~/.ssh/id_rsa
+chmod 600 ~/.ssh/id_rsa
+ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 
 # setup deploy git account
 git config --global user.name "$INPUT_USER_NAME"
