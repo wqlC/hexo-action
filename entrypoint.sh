@@ -21,14 +21,14 @@ npm install hexo-util -g
 if [ "$INPUT_COMMIT_MSG" = "none" ]
 then
     hexo g -d
-elif [ "$INPUT_COMMIT_MSG" = "" ] || [ "$INPUT_COMMIT_MSG" = "default" ]
-then
-#     # pull original publish repo
-#     NODE_PATH=$NODE_PATH:$(pwd)/node_modules node /sync_deploy_history.js
-#     hexo g -d
-else
-#     NODE_PATH=$NODE_PATH:$(pwd)/node_modules node /sync_deploy_history.js
-#     hexo g -d -m "$INPUT_COMMIT_MSG"
+# elif [ "$INPUT_COMMIT_MSG" = "" ] || [ "$INPUT_COMMIT_MSG" = "default" ]
+# then
+# #     # pull original publish repo
+# #     NODE_PATH=$NODE_PATH:$(pwd)/node_modules node /sync_deploy_history.js
+# #     hexo g -d
+# else
+# #     NODE_PATH=$NODE_PATH:$(pwd)/node_modules node /sync_deploy_history.js
+# #     hexo g -d -m "$INPUT_COMMIT_MSG"
 fi
 
 echo ::set-output name=notify::"Deploy complate."
