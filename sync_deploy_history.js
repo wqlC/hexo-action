@@ -4,7 +4,7 @@
 const pathFn = require('path');
 const fs = require('fs');
 const parseConfig = require('hexo-deployer-git/lib/parse_config');
-const spawn = require('hexo-util/lib/spawn');
+const { spawn } = require('child_process');
 const Hexo = require('hexo');
 
 async function sync_deploy_history() {
@@ -19,7 +19,6 @@ async function sync_deploy_history() {
   // For git cmd
   function git(...args) {
     return spawn('git', args, {
-      verbose: true,
       stdio: 'inherit'
     });
   }
@@ -43,10 +42,11 @@ async function sync_deploy_history() {
     }
     console.log(`Located a single repo: ${repos[0].url},${repos[0].branch}.`);
     const result = await git('clone', '--branch', repos[0].branch, repos[0].url, deployDir);
-    console.log(result);
+    console.log(result.toString());
   });
 
   console.log('Sync done\n');
 }
 
 sync_deploy_history();
+
